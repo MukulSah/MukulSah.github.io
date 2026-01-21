@@ -24,7 +24,6 @@
             overflow-x: hidden;
         }
 
-        /* Particle Canvas Background */
         #bg-canvas {
             position: fixed;
             top: 0;
@@ -32,12 +31,11 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.4;
+            opacity: 0.3;
         }
 
         .container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
 
-        /* Modern Navigation */
         nav {
             padding: 25px 0;
             display: flex;
@@ -45,30 +43,32 @@
             align-items: center;
             position: sticky;
             top: 0;
-            background: rgba(2, 6, 23, 0.8);
+            background: rgba(2, 6, 23, 0.85);
             backdrop-filter: blur(12px);
             z-index: 100;
         }
+
         .logo { font-size: 1.4rem; font-weight: 800; color: var(--accent); letter-spacing: -1px; }
 
         /* Hero Section */
         .hero {
-            height: 90vh;
+            height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
         }
-        .hero h1 { font-size: clamp(3rem, 8vw, 5rem); line-height: 1; margin: 10px 0; }
-        .hero h2 { font-size: clamp(1.5rem, 4vw, 2.5rem); color: var(--text-secondary); margin-bottom: 25px; }
-        
-        /* Section Styling */
+        .hero h1 { font-size: clamp(3rem, 8vw, 5rem); line-height: 1.1; margin: 10px 0; font-weight: 800; }
+        .hero h2 { font-size: clamp(1.2rem, 3vw, 2rem); color: var(--text-secondary); margin-bottom: 25px; font-weight: 400; }
+
+        /* General Section Styling */
         .section-title {
             font-size: 2.2rem;
             margin-bottom: 3rem;
             display: flex;
             align-items: center;
             gap: 15px;
+            color: var(--text-primary);
         }
         .section-title::after {
             content: "";
@@ -77,67 +77,77 @@
             flex-grow: 1;
         }
 
-        /* Experience & Project Cards */
+        /* Experience Cards */
         .exp-card {
             background: var(--card-bg);
             border: 1px solid rgba(255,255,255,0.05);
-            padding: 35px;
+            padding: clamp(20px, 5vw, 40px);
             border-radius: 12px;
             margin-bottom: 40px;
-            transition: 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-        .exp-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px -15px var(--accent-glow);
-        }
-
-        .job-meta { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 15px; flex-wrap: wrap; }
-        .company { color: var(--accent); font-size: 1.4rem; font-weight: 700; }
-        .role { font-weight: 600; color: var(--text-primary); display: block; margin-bottom: 20px; font-size: 1.1rem;}
-        
-        .project-block {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 25px;
-            margin-top: 25px;
-        }
-        .project-header { color: var(--maverick-gold); font-weight: 700; font-size: 1.2rem; margin-bottom: 10px; display: block; }
-        
-        ul { list-style: none; }
-        li { position: relative; padding-left: 25px; margin-bottom: 10px; color: var(--text-secondary); }
-        li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
-
-        /* Skills */
-        .skills-grid { display: flex; flex-wrap: wrap; gap: 10px; }
-        .skill-tag {
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--accent);
-            padding: 6px 14px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            border: 1px solid rgba(56, 189, 248, 0.2);
-        }
-
-        /* Animations */
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
-        .btn {
-            padding: 15px 30px;
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 700;
             transition: 0.3s;
         }
-        .btn:hover { background: var(--accent-glow); }
+        .exp-card:hover { border-color: var(--accent); }
+
+        .job-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: flex-start; 
+            margin-bottom: 10px; 
+            flex-wrap: wrap; 
+        }
+        .company { color: var(--accent); font-size: 1.5rem; font-weight: 700; }
+        .date { color: var(--text-secondary); font-family: monospace; font-size: 0.9rem; }
+        .role-title { font-weight: 600; font-size: 1.1rem; margin-bottom: 20px; display: block; color: var(--text-primary); }
+
+        /* Detailed Project Styling */
+        .project-meta { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; margin-top: 25px; }
+        .project-tagline { color: var(--maverick-gold); font-weight: 700; font-size: 1.1rem; margin-bottom: 15px; display: block; }
+        
+        ul { list-style: none; }
+        li { position: relative; padding-left: 25px; margin-bottom: 12px; color: var(--text-secondary); font-size: 0.95rem; }
+        li::before { content: "▹"; position: absolute; left: 0; color: var(--accent); }
+
+        /* Technical Arsenal Grid - Fixed for Desktop visibility */
+        .skills-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
+            gap: 15px; 
+            margin-top: 20px;
+        }
+        .skill-item {
+            background: rgba(56, 189, 248, 0.05);
+            border: 1px solid rgba(56, 189, 248, 0.15);
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .skill-item:hover { background: var(--accent-glow); color: #fff; transform: translateY(-2px); }
+
+        /* Buttons */
+        .btn {
+            padding: 14px 28px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 4px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .btn:hover { background: var(--accent-glow); box-shadow: 0 0 20px var(--accent-glow); }
+
+        /* Animations */
+        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
         @media (max-width: 768px) {
-            .job-meta { flex-direction: column; }
+            .hero { height: auto; padding: 100px 0; }
+            .job-header { flex-direction: column; gap: 5px; }
+            .skills-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
@@ -146,96 +156,96 @@
     <canvas id="bg-canvas"></canvas>
 
     <nav class="container">
-        <div class="logo">MUKUL.SAH</div>
+        <div class="logo">MUKUL SAH</div>
         <div class="nav-links">
-            <a href="mailto:mukulofficialstu@gmail.com" class="btn" style="padding: 8px 16px; font-size: 0.9rem;">Contact</a>
+            <a href="mailto:mukulofficialstu@gmail.com" class="btn" style="padding: 8px 16px; font-size: 0.85rem;">Get In Touch</a>
         </div>
     </nav>
 
     <main class="container">
         <section class="hero">
-            <h2 style="color: var(--accent); font-family: monospace;">// Software Engineer & System Architect</h2>
+            <h2 style="color: var(--accent); font-family: monospace;">// Software Engineer | Maverick</h2>
             <h1>Mukul Sah.</h1>
-            <h2 style="max-width: 700px;">Engineering reliable, scalable, and secure enterprise infrastructure.</h2>
-            <div style="margin-top: 30px;">
-                <a href="#experience" class="btn">View Architecture</a>
+            <h2 style="max-width: 750px;">Architecting reliable, scalable IT Asset Management platforms and high-performance system integrations.</h2>
+            <div style="margin-top: 30px; display: flex; gap: 15px; flex-wrap: wrap;">
+                <a href="#experience" class="btn">View Experience</a>
+                <a href="https://www.linkedin.com/in/mukul-sah-041" target="_blank" class="btn" style="border-color: var(--text-secondary); color: var(--text-secondary);">LinkedIn</a>
             </div>
         </section>
 
-        <section id="experience" style="padding: 100px 0;">
+        <section id="experience" style="padding: 80px 0;">
             <h2 class="section-title reveal">Where I've Worked</h2>
 
             <div class="exp-card reveal">
-                <div class="job-meta">
-                    <span class="company">Maco Infotech Ltd.</span>
-                    <span style="color: var(--text-secondary); font-family: monospace;">May 2024 — Present</span>
+                <div class="job-header">
+                    <span class="company">MACO INFOTECH LTD.</span>
+                    <span class="date">May 2024 - Present [cite: 36]</span>
                 </div>
-                <span class="role">Software Engineer | System Architect (Windows Ecosystem)</span>
+                <span class="role-title">Software Engineer | System Architect</span>
                 
-                <div class="project-block">
-                    <span class="project-header">Project 1: MACO Endpoint System (Windows Ecosystem)</span>
-                    <p style="margin-bottom: 15px; color: var(--text-primary);">Enterprise IT Asset Management & Endpoint Control Platform</p>
+                <div class="project-meta">
+                    <span class="project-tagline">MACO Endpoint System (Windows Ecosystem) [cite: 37]</span>
                     <ul>
-                        <li>Architected a scalable, enterprise-grade endpoint management system for Windows environments[cite: 37, 38].</li>
-                        <li>Built a hybrid discovery engine using <strong>SNMP, mDNS, and SSDP</strong> for comprehensive network visibility[cite: 41, 42].</li>
-                        <li>Implemented secure, low-latency <strong>WebSocket-based remote desktop streaming</strong>[cite: 43].</li>
-                        <li>Developed hardware surveillance and theft-detection mechanisms capable of operating outside corporate LANs[cite: 45].</li>
-                    </ul>
-                </div>
-
-                <div class="project-block">
-                    <span class="project-header">Project 2: CCTV Face Recognition System</span>
-                    <p style="margin-bottom: 15px; color: var(--text-primary);">AI-Driven Employee Identification & Surveillance</p>
-                    <ul>
-                        <li>Designed a complete recognition pipeline (Detection → Alignment → Extraction) for real-world production environments.</li>
-                        <li>Optimized models for stability under motion blur, variable lighting, and non-standard poses.</li>
+                        <li>Leading the development of a scalable enterprise IT Asset Management platform providing real-time infrastructure awareness[cite: 38, 42].</li>
+                        <li>Built a hybrid discovery engine using <strong>SNMP, mDNS, and SSDP</strong> for comprehensive visibility across segmented networks[cite: 40, 41].</li>
+                        <li>Implemented low-latency <strong>WebSocket-based remote desktop access</strong> and scalable inter-component communication[cite: 43].</li>
+                        <li>Deployed <strong>FTPS (TLS-secured)</strong> channels for encrypted log transfer and patch distribution[cite: 44].</li>
+                        <li>Integrated telemetry for performance metrics, software license compliance, and "zombie" device detection[cite: 45].</li>
                     </ul>
                 </div>
             </div>
 
             <div class="exp-card reveal">
-                <div class="job-meta">
+                <div class="job-header">
                     <span class="company">Omnie Solutions (1) Pvt Ltd</span>
-                    <span style="color: var(--text-secondary); font-family: monospace;">July 2023 — May 2024</span>
+                    <span class="date">July 2023 - May 2024 [cite: 49]</span>
                 </div>
-                <span class="role">.NET Developer & BizTalk Integration Engineer</span>
+                <span class="role-title">Software Engineer (.NET & BizTalk Integration) [cite: 51]</span>
                 <ul>
-                    <li><strong>Tronox Inc:</strong> Acted as IT Integration Developer (BizTalk) bridging complex enterprise data streams[cite: 52].</li>
-                    <li><strong>Trinity Healthcare:</strong> Engineered core .NET solutions for healthcare systems[cite: 52].</li>
-                    <li>Consistently delivered results by adapting to diverse technical stacks within short timeframes[cite: 53].</li>
+                    <li>Integrated critical data streams for <strong>Tronox Inc.</strong> as an IT Integration Developer.</li>
+                    <li>Engineered .NET solutions for <strong>Trinity Healthcare Solution</strong>.</li>
+                    <li>Adapted rapidly to diverse technical environments, delivering high-performance results with strong ownership[cite: 53].</li>
                 </ul>
             </div>
 
             <div class="exp-card reveal">
-                <div class="job-meta">
-                    <span class="company">Binmile</span>
-                    <span style="color: var(--text-secondary); font-family: monospace;">May 2023 — July 2023</span>
+                <div class="job-header">
+                    <span class="company">Education & Certifications</span>
                 </div>
-                <span class="role">.NET Developer</span>
-                <ul>
-                    <li>Focused on foundational .NET Framework development and industry-standard engineering workflows[cite: 54, 55].</li>
-                </ul>
+                <div style="margin-top: 15px;">
+                    <p style="color: var(--text-primary); font-weight: 600;">B.Tech in Computer Science (2020-2024) [cite: 69]</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 20px;">Dev Bhoomi Group of Institutions, Dehradun [cite: 68]</p>
+                    
+                    <p style="color: var(--text-primary); font-weight: 600;">Professional Certifications [cite: 11]</p>
+                    <ul>
+                        <li>Microsoft Technology Associate (MTA): Web Development Fundamentals [cite: 12]</li>
+                        <li>C# Console and Windows Form Development w/ Entity Framework [cite: 12]</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <section id="skills" style="padding-bottom: 100px;">
             <h2 class="section-title reveal">Technical Arsenal</h2>
             <div class="skills-grid reveal">
-                <span class="skill-tag">C# / .NET Framework</span>
-                <span class="skill-tag">WinForms Architecture</span>
-                <span class="skill-tag">Entity Framework</span>
-                <span class="skill-tag">Microsoft SQL Server</span>
-                <span class="skill-tag">Socket Programming (TCP/WebSockets)</span>
-                <span class="skill-tag">BizTalk Server</span>
-                <span class="skill-tag">AI/Computer Vision</span>
-                <span class="skill-tag">Network Discovery (SNMP/mDNS)</span>
-                <span class="skill-tag">ADO.NET / LINQ</span>
+                <div class="skill-item">C# / .NET Framework [cite: 12]</div>
+                <div class="skill-item">WinForms & Console Dev [cite: 12]</div>
+                <div class="skill-item">Entity Framework [cite: 12]</div>
+                <div class="skill-item">ASP.NET Debugging [cite: 10]</div>
+                <div class="skill-item">Visual Studio IDE [cite: 9]</div>
+                <div class="skill-item">WebSocket & TCP [cite: 43]</div>
+                <div class="skill-item">SNMP / mDNS / SSDP [cite: 41]</div>
+                <div class="skill-item">FTPS (TLS-Secured) [cite: 44]</div>
+                <div class="skill-item">RESTful Routing [cite: 10]</div>
+                <div class="skill-item">BizTalk Integration </div>
+                <div class="skill-item">System Architecture [cite: 38]</div>
+                <div class="skill-item">Telemetry Pipelines [cite: 45]</div>
             </div>
         </section>
     </main>
 
     <script>
-        // Particle Background Animation
+        // Particle Background Logic
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
@@ -250,16 +260,14 @@
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
                 this.size = Math.random() * 2;
-                this.speedX = Math.random() * 0.5 - 0.25;
-                this.speedY = Math.random() * 0.5 - 0.25;
+                this.speedX = Math.random() * 0.4 - 0.2;
+                this.speedY = Math.random() * 0.4 - 0.2;
             }
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
-                if (this.x > canvas.width) this.x = 0;
-                if (this.x < 0) this.x = canvas.width;
-                if (this.y > canvas.height) this.y = 0;
-                if (this.y < 0) this.y = canvas.height;
+                if (this.x > canvas.width) this.x = 0; else if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0; else if (this.y < 0) this.y = canvas.height;
             }
             draw() {
                 ctx.fillStyle = '#38bdf8';
@@ -270,7 +278,8 @@
         }
 
         function createParticles() {
-            for (let i = 0; i < 100; i++) particles.push(new Particle());
+            particles = [];
+            for (let i = 0; i < 80; i++) particles.push(new Particle());
         }
 
         function animate() {
@@ -279,21 +288,16 @@
             requestAnimationFrame(animate);
         }
 
-        // Scroll Reveal
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
+        // Scroll Reveal Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.15 });
 
-        window.addEventListener("scroll", reveal);
-        window.addEventListener('resize', initCanvas);
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        window.addEventListener('resize', () => { initCanvas(); createParticles(); });
         initCanvas();
         createParticles();
         animate();

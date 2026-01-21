@@ -52,7 +52,7 @@
 
         /* Hero Section */
         .hero {
-            height: 85vh;
+            height: 80vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -61,9 +61,10 @@
         .hero h1 { font-size: clamp(3rem, 8vw, 5rem); line-height: 1.1; margin: 10px 0; font-weight: 800; }
         .hero h2 { font-size: clamp(1.2rem, 3vw, 2rem); color: var(--text-secondary); margin-bottom: 25px; font-weight: 400; }
 
-        /* General Section Styling */
+        /* Section Styling */
         .section-title {
             font-size: 2.2rem;
+            margin-top: 100px;
             margin-bottom: 3rem;
             display: flex;
             align-items: center;
@@ -77,7 +78,7 @@
             flex-grow: 1;
         }
 
-        /* Experience Cards */
+        /* Cards */
         .exp-card {
             background: var(--card-bg);
             border: 1px solid rgba(255,255,255,0.05);
@@ -86,7 +87,7 @@
             margin-bottom: 40px;
             transition: 0.3s;
         }
-        .exp-card:hover { border-color: var(--accent); }
+        .exp-card:hover { border-color: var(--accent); transform: translateY(-3px); }
 
         .job-header { 
             display: flex; 
@@ -99,20 +100,30 @@
         .date { color: var(--text-secondary); font-family: monospace; font-size: 0.9rem; }
         .role-title { font-weight: 600; font-size: 1.1rem; margin-bottom: 20px; display: block; color: var(--text-primary); }
 
-        /* Detailed Project Styling */
-        .project-meta { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; margin-top: 25px; }
-        .project-tagline { color: var(--maverick-gold); font-weight: 700; font-size: 1.1rem; margin-bottom: 15px; display: block; }
+        /* Projects Section */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+        .project-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 30px;
+            border-radius: 12px;
+            height: 100%;
+        }
+        .project-name { color: var(--maverick-gold); font-weight: 700; font-size: 1.2rem; margin-bottom: 10px; display: block; }
         
         ul { list-style: none; }
         li { position: relative; padding-left: 25px; margin-bottom: 12px; color: var(--text-secondary); font-size: 0.95rem; }
         li::before { content: "▹"; position: absolute; left: 0; color: var(--accent); }
 
-        /* Technical Arsenal Grid - Fixed for Desktop visibility */
+        /* Skills Grid */
         .skills-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
             gap: 15px; 
-            margin-top: 20px;
         }
         .skill-item {
             background: rgba(56, 189, 248, 0.05);
@@ -123,11 +134,19 @@
             font-size: 0.9rem;
             color: var(--accent);
             font-weight: 500;
-            transition: 0.3s;
         }
-        .skill-item:hover { background: var(--accent-glow); color: #fff; transform: translateY(-2px); }
 
-        /* Buttons */
+        /* Fixed Action Buttons */
+        .resume-actions {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+        }
+
         .btn {
             padding: 14px 28px;
             border: 1px solid var(--accent);
@@ -137,17 +156,21 @@
             border-radius: 4px;
             transition: 0.3s;
             display: inline-block;
+            background: var(--bg-color);
+            cursor: pointer;
+            text-align: center;
         }
         .btn:hover { background: var(--accent-glow); box-shadow: 0 0 20px var(--accent-glow); }
+        .btn-filled { background: var(--accent); color: var(--bg-color); }
+        .btn-filled:hover { background: #7dd3fc; color: var(--bg-color); }
 
         /* Animations */
         .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         @media (max-width: 768px) {
-            .hero { height: auto; padding: 100px 0; }
-            .job-header { flex-direction: column; gap: 5px; }
-            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+            .resume-actions { position: static; margin-top: 40px; width: 100%; padding: 0 25px; }
+            .btn { width: 100%; }
         }
     </style>
 </head>
@@ -158,91 +181,118 @@
     <nav class="container">
         <div class="logo">MUKUL SAH</div>
         <div class="nav-links">
-            <a href="mailto:mukulofficialstu@gmail.com" class="btn" style="padding: 8px 16px; font-size: 0.85rem;">Get In Touch</a>
+            <a href="mailto:mukulofficialstu@gmail.com" class="btn" style="padding: 8px 16px; font-size: 0.85rem;">Email Me</a>
         </div>
     </nav>
 
     <main class="container">
         <section class="hero">
-            <h2 style="color: var(--accent); font-family: monospace;">// Software Engineer | Maverick</h2>
+            <h2 style="color: var(--accent); font-family: monospace;">// Software Engineer | System Architect</h2>
             <h1>Mukul Sah.</h1>
-            <h2 style="max-width: 750px;">Architecting reliable, scalable IT Asset Management platforms and high-performance system integrations.</h2>
-            <div style="margin-top: 30px; display: flex; gap: 15px; flex-wrap: wrap;">
-                <a href="#experience" class="btn">View Experience</a>
-                <a href="https://www.linkedin.com/in/mukul-sah-041" target="_blank" class="btn" style="border-color: var(--text-secondary); color: var(--text-secondary);">LinkedIn</a>
-            </div>
+            <h2 style="max-width: 750px;">Engineering reliable, scalable infrastructure and real-time enterprise discovery platforms.</h2>
         </section>
 
-        <section id="experience" style="padding: 80px 0;">
+        <section id="experience">
             <h2 class="section-title reveal">Where I've Worked</h2>
 
             <div class="exp-card reveal">
                 <div class="job-header">
                     <span class="company">MACO INFOTECH LTD.</span>
-                    <span class="date">May 2024 - Present [cite: 36]</span>
+                    <span class="date">May 2024 - Present</span>
                 </div>
-                <span class="role-title">Software Engineer | System Architect</span>
-                
-                <div class="project-meta">
-                    <span class="project-tagline">MACO Endpoint System (Windows Ecosystem) [cite: 37]</span>
-                    <ul>
-                        <li>Leading the development of a scalable enterprise IT Asset Management platform providing real-time infrastructure awareness[cite: 38, 42].</li>
-                        <li>Built a hybrid discovery engine using <strong>SNMP, mDNS, and SSDP</strong> for comprehensive visibility across segmented networks[cite: 40, 41].</li>
-                        <li>Implemented low-latency <strong>WebSocket-based remote desktop access</strong> and scalable inter-component communication[cite: 43].</li>
-                        <li>Deployed <strong>FTPS (TLS-secured)</strong> channels for encrypted log transfer and patch distribution[cite: 44].</li>
-                        <li>Integrated telemetry for performance metrics, software license compliance, and "zombie" device detection[cite: 45].</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="exp-card reveal">
-                <div class="job-header">
-                    <span class="company">Omnie Solutions (1) Pvt Ltd</span>
-                    <span class="date">July 2023 - May 2024 [cite: 49]</span>
-                </div>
-                <span class="role-title">Software Engineer (.NET & BizTalk Integration) [cite: 51]</span>
+                <span class="role-title">Software Engineer | System Architect [cite: 34, 35, 36]</span>
                 <ul>
-                    <li>Integrated critical data streams for <strong>Tronox Inc.</strong> as an IT Integration Developer.</li>
-                    <li>Engineered .NET solutions for <strong>Trinity Healthcare Solution</strong>.</li>
-                    <li>Adapted rapidly to diverse technical environments, delivering high-performance results with strong ownership[cite: 53].</li>
+                    <li>Architecting a scalable IT Asset Management platform for enterprise Windows environments. [cite: 38]</li>
+                    <li>Developed high-performance discovery engines using SNMP, mDNS, and SSDP. [cite: 41]</li>
+                    <li>Implemented secure remote access via WebSocket-based streaming and FTPS channels. [cite: 43, 44]</li>
+                    <li>Engineered telemetry pipelines for network health, security metrics, and "zombie" device detection. [cite: 45]</li>
                 </ul>
             </div>
 
             <div class="exp-card reveal">
                 <div class="job-header">
-                    <span class="company">Education & Certifications</span>
+                    <span class="company">OMNIE SOLUTIONS (1) PVT LTD</span>
+                    <span class="date">July 2023 - May 2024</span>
                 </div>
-                <div style="margin-top: 15px;">
-                    <p style="color: var(--text-primary); font-weight: 600;">B.Tech in Computer Science (2020-2024) [cite: 69]</p>
-                    <p style="color: var(--text-secondary); margin-bottom: 20px;">Dev Bhoomi Group of Institutions, Dehradun [cite: 68]</p>
-                    
-                    <p style="color: var(--text-primary); font-weight: 600;">Professional Certifications [cite: 11]</p>
+                <span class="role-title">Software Engineer (.NET & BizTalk Integration) [cite: 47, 48, 49]</span>
+                <ul>
+                    <li>Contributed as an IT Integration Developer for projects at Tronox Inc. [cite: 52]</li>
+                    <li>Developed core .NET solutions for Trinity Healthcare Solution. [cite: 52]</li>
+                    <li>Adapted to diverse technical stacks and took full ownership of mission-critical tasks. [cite: 53]</li>
+                </ul>
+            </div>
+
+            <div class="exp-card reveal">
+                <div class="job-header">
+                    <span class="company">BINMILE</span>
+                    <span class="date">May 2023 - July 2023</span>
+                </div>
+                <span class="role-title">Software Engineer </span>
+                <ul>
+                    <li>Joined via Campus Placement to contribute to .NET application development and software best practices. [cite: 58]</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2 class="section-title reveal">Academic Background</h2>
+            <div class="exp-card reveal">
+                <div class="job-header">
+                    <span class="company">DEV BHOOMI GROUP OF INSTITUTIONS</span>
+                    <span class="date">2020 - 2024</span>
+                </div>
+                <span class="role-title">Bachelor of Technology - BTech, Computer Science </span>
+                <ul>
+                    <li>Member of the Computer Society of India (ID: S10442200030145). [cite: 64, 66]</li>
+                    <li>Microsoft Technology Associate (MTA): Web Development Fundamentals. [cite: 12]</li>
+                    <li>Certification in C# Console and Windows Form Development w/ Entity Framework. [cite: 12]</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title reveal">Featured Projects</h2>
+            <div class="project-grid">
+                <div class="project-card reveal">
+                    <span class="project-name">MACO Endpoint System</span>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 15px;">Enterprise Asset Management</p>
                     <ul>
-                        <li>Microsoft Technology Associate (MTA): Web Development Fundamentals [cite: 12]</li>
-                        <li>C# Console and Windows Form Development w/ Entity Framework [cite: 12]</li>
+                        <li>Real-time dynamic network topology mapping. [cite: 42]</li>
+                        <li>Automated hardware and software inventory audits. [cite: 40]</li>
+                        <li>TLS-secured FTPS channels for encrypted configuration sync. [cite: 44]</li>
+                    </ul>
+                </div>
+                <div class="project-card reveal">
+                    <span class="project-name">CCTV Face Recognition</span>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 15px;">AI Surveillance Pipeline</p>
+                    <ul>
+                        <li>Robust identification under variable lighting and head poses.</li>
+                        <li>High-accuracy registration and inference for live streams.</li>
+                        <li>Identity consistency tracking across camera frames.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <section id="skills" style="padding-bottom: 100px;">
+        <section id="skills" style="padding-bottom: 150px;">
             <h2 class="section-title reveal">Technical Arsenal</h2>
             <div class="skills-grid reveal">
-                <div class="skill-item">C# / .NET Framework [cite: 12]</div>
-                <div class="skill-item">WinForms & Console Dev [cite: 12]</div>
-                <div class="skill-item">Entity Framework [cite: 12]</div>
-                <div class="skill-item">ASP.NET Debugging [cite: 10]</div>
-                <div class="skill-item">Visual Studio IDE [cite: 9]</div>
-                <div class="skill-item">WebSocket & TCP [cite: 43]</div>
-                <div class="skill-item">SNMP / mDNS / SSDP [cite: 41]</div>
-                <div class="skill-item">FTPS (TLS-Secured) [cite: 44]</div>
+                <div class="skill-item">C# / .NET Core</div>
+                <div class="skill-item">Entity Framework</div>
+                <div class="skill-item">WinForms / WPF</div>
+                <div class="skill-item">BizTalk Server [cite: 52]</div>
+                <div class="skill-item">WebSocket / TCP [cite: 43]</div>
+                <div class="skill-item">SNMP / mDNS [cite: 41]</div>
                 <div class="skill-item">RESTful Routing [cite: 10]</div>
-                <div class="skill-item">BizTalk Integration </div>
-                <div class="skill-item">System Architecture [cite: 38]</div>
-                <div class="skill-item">Telemetry Pipelines [cite: 45]</div>
+                <div class="skill-item">SQL Server</div>
             </div>
         </section>
     </main>
+
+    <div class="resume-actions">
+        <a href="Profile.pdf" target="_blank" class="btn">View Resume PDF</a>
+        <a href="Profile.pdf" download="Mukul_Sah_Resume.pdf" class="btn btn-filled">Download Resume</a>
+    </div>
 
     <script>
         // Particle Background Logic
@@ -279,7 +329,7 @@
 
         function createParticles() {
             particles = [];
-            for (let i = 0; i < 80; i++) particles.push(new Particle());
+            for (let i = 0; i < 60; i++) particles.push(new Particle());
         }
 
         function animate() {
@@ -293,7 +343,7 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
             });
-        }, { threshold: 0.15 });
+        }, { threshold: 0.1 });
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 

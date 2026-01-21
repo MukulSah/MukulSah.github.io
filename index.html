@@ -48,12 +48,12 @@
 
         /* Hero */
         .hero {
-            padding: 100px 0;
+            padding: 100px 0 60px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
         }
         .hero h1 { font-size: clamp(3rem, 8vw, 5rem); line-height: 1.1; margin: 10px 0; font-weight: 800; }
+        .hero p { max-width: 700px; color: var(--text-secondary); font-size: 1.1rem; margin-top: 15px; }
         
         /* Tab System */
         .tabs-container { margin-top: 50px; }
@@ -62,6 +62,8 @@
             gap: 20px;
             border-bottom: 1px solid rgba(255,255,255,0.1);
             margin-bottom: 40px;
+            overflow-x: auto;
+            white-space: nowrap;
         }
         .tab-btn {
             background: none;
@@ -84,7 +86,7 @@
         .tab-content { display: none; }
         .tab-content.active { display: block; animation: fadeIn 0.5s ease; }
 
-        /* Experience & Project Cards */
+        /* Cards */
         .card {
             background: var(--card-bg);
             border: 1px solid rgba(255,255,255,0.05);
@@ -100,13 +102,13 @@
         li { position: relative; padding-left: 25px; margin-bottom: 10px; color: var(--text-secondary); }
         li::before { content: "▹"; position: absolute; left: 0; color: var(--accent); }
 
-        /* Skillsets & Tools Sections */
+        /* Skillsets & Tools */
         .section-title { font-size: 1.8rem; margin: 60px 0 30px; display: flex; align-items: center; gap: 15px; }
         .section-title::after { content: ""; height: 1px; background: rgba(255,255,255,0.1); flex-grow: 1; }
         
         .skill-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 15px;
         }
         .skill-item {
@@ -118,9 +120,9 @@
             text-align: center;
             transition: 0.3s;
         }
-        .skill-item:hover { border-color: var(--accent); color: var(--accent); }
+        .skill-item:hover { border-color: var(--accent); color: var(--accent); transform: scale(1.02); }
 
-        /* Fixed Resume Buttons */
+        /* Floating Actions */
         .resume-float {
             position: fixed;
             bottom: 30px; right: 30px;
@@ -136,13 +138,16 @@
             border-radius: 4px;
             background: var(--bg-color);
             text-align: center;
+            transition: 0.3s;
         }
         .btn-fill { background: var(--accent); color: var(--bg-color); }
+        .btn:hover { box-shadow: 0 0 15px var(--accent-glow); transform: translateY(-2px); }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         @media (max-width: 768px) {
-            .resume-float { position: static; margin-top: 40px; padding: 0 25px; }
+            .resume-float { position: static; margin-top: 40px; padding: 0 25px; margin-bottom: 40px; }
+            .hero { padding-top: 60px; }
         }
     </style>
 </head>
@@ -152,78 +157,80 @@
 
     <nav class="container">
         <div class="logo">MUKUL.SAH</div>
-        <a href="mailto:mukulofficialstu@gmail.com" class="btn" style="font-size: 0.8rem;">Contact Me</a>
+        <div class="nav-links">
+            <a href="mailto:mukulofficialstu@gmail.com" class="btn" style="font-size: 0.8rem; padding: 8px 16px;">Contact</a>
+        </div>
     </nav>
 
     <main class="container">
         <section class="hero">
-            <h2 style="color: var(--accent); font-family: monospace;">// Software Engineer | Maverick [cite: 14]</h2>
-            <h1>Architecting Systems with Purpose.</h1>
-            <p style="max-width: 650px; color: var(--text-secondary); font-size: 1.1rem;">
-                Focused on building reliable, scalable, and impactful systems through real-world challenges and technical excellence[cite: 16, 17].
-            </p>
+            <h2 style="color: var(--accent); font-family: monospace;">// Software Engineer | Maverick</h2>
+            <h1>Mukul Sah.</h1>
+            <p>Focused on building reliable, scalable, and impactful systems. Over the years, I've grown through real-world challenges—handling critical responsibilities and aligning technology with business goals.</p>
 
             <div class="tabs-container">
                 <div class="tab-buttons">
-                    <button class="tab-btn active" onclick="openTab(event, 'experience')">Work Experience</button>
-                    <button class="tab-btn" onclick="openTab(event, 'projects')">Project Showcases</button>
+                    <button class="tab-btn active" onclick="openTab(event, 'experience')">Where I've Worked</button>
+                    <button class="tab-btn" onclick="openTab(event, 'projects')">Project Details</button>
                     <button class="tab-btn" onclick="openTab(event, 'education')">Education</button>
                 </div>
 
                 <div id="experience" class="tab-content active">
                     <div class="card">
                         <div class="header-flex">
-                            <span class="title-main">MACO INFOTECH LTD. [cite: 34]</span>
-                            <span style="color: var(--text-secondary); font-family: monospace;">May 2024 - Present [cite: 36]</span>
+                            <span class="title-main">MACO INFOTECH LTD.</span>
+                            <span style="color: var(--text-secondary); font-family: monospace;">May 2024 - Present</span>
                         </div>
-                        <span class="subtitle">Software Engineer [cite: 35]</span>
+                        <span class="subtitle">Software Engineer</span>
                         <ul>
-                            <li>Architecting a scalable IT Asset Management platform for enterprise Windows environments[cite: 38].</li>
-                            <li>Engineered hybrid discovery techniques using SNMP, mDNS, and SSDP for network visibility[cite: 40, 41].</li>
-                            <li>Implemented secure remote desktop access via WebSocket-based streaming[cite: 43].</li>
+                            <li>Architecting and leading the development of a scalable IT Asset Management platform for enterprise Windows environments.</li>
+                            <li>Engineered hybrid discovery techniques using SNMP, mDNS, and SSDP for comprehensive network visibility.</li>
+                            <li>Implemented secure remote desktop access via WebSocket-based streaming.</li>
+                            <li>Designed telemetry pipelines for real-time performance metrics and anomaly detection for "zombie" devices.</li>
                         </ul>
                     </div>
 
                     <div class="card">
                         <div class="header-flex">
-                            <span class="title-main">Omnie Solutions (1) Pvt Ltd [cite: 47]</span>
-                            <span style="color: var(--text-secondary); font-family: monospace;">July 2023 - May 2024 [cite: 49]</span>
+                            <span class="title-main">Omnie Solutions (1) Pvt Ltd</span>
+                            <span style="color: var(--text-secondary); font-family: monospace;">July 2023 - May 2024</span>
                         </div>
-                        <span class="subtitle">Software Engineer (.NET & IT Integration) [cite: 51]</span>
+                        <span class="subtitle">Software Engineer (.NET & BizTalk Integration)</span>
                         <ul>
-                            <li>Contributed to IT Integration for Tronox Inc. and .NET development for Trinity Healthcare[cite: 52].</li>
-                            <li>Adapted to diverse technical environments and consistently delivered results under pressure[cite: 53].</li>
+                            <li>Contributed to IT Integration for Tronox Inc. as an Integration Developer.</li>
+                            <li>Developed core .NET features for Trinity Healthcare Solution.</li>
+                            <li>Took ownership of key tasks in diverse technical environments, consistently delivering results with passion.</li>
                         </ul>
                     </div>
 
                     <div class="card">
                         <div class="header-flex">
-                            <span class="title-main">Binmile [cite: 54]</span>
-                            <span style="color: var(--text-secondary); font-family: monospace;">May 2023 - July 2023 [cite: 55]</span>
+                            <span class="title-main">Binmile</span>
+                            <span style="color: var(--text-secondary); font-family: monospace;">May 2023 - July 2023</span>
                         </div>
-                        <span class="subtitle">Software Engineer [cite: 55]</span>
+                        <span class="subtitle">Software Engineer</span>
                         <ul>
-                            <li>Campus Placement focused on foundational engineering and software development lifecycle[cite: 58].</li>
+                            <li>Campus Placement role focused on learning and building foundational software engineering best practices.</li>
                         </ul>
                     </div>
                 </div>
 
                 <div id="projects" class="tab-content">
                     <div class="card">
-                        <span class="title-main">MACO Endpoint System [cite: 37]</span>
-                        <span class="subtitle">Enterprise Asset Lifecycle & Control</span>
+                        <span class="title-main">Enterprise Endpoint System</span>
+                        <span class="subtitle">IT Asset Lifecycle & Network Discovery</span>
                         <ul>
-                            <li>High-performance parallel IP range scanning and dynamic topology mapping[cite: 42].</li>
-                            <li>FTPS (TLS-secured) channels for encrypted log transfer and configuration sync[cite: 44].</li>
-                            <li>Real-time telemetry pipelines for network metrics and hardware security[cite: 45].</li>
+                            <li>Built high-performance parallel IP range scanning with dynamic network topology mapping.</li>
+                            <li>Implemented FTPS (TLS-secured) channels for encrypted log transfer and configuration synchronization.</li>
+                            <li>Utilized active and passive discovery including MAC address vendor analysis and Wi-Fi profiling.</li>
                         </ul>
                     </div>
                     <div class="card">
-                        <span class="title-main">Surveillance & AI Systems</span>
-                        <span class="subtitle">Production-Level Recognition</span>
+                        <span class="title-main">AI Surveillance Pipeline</span>
+                        <span class="subtitle">Production-Ready Recognition</span>
                         <ul>
-                            <li>Automated anomaly detection for inactive or "zombie" enterprise devices[cite: 45].</li>
-                            <li>Windows ecosystem-focused application architecture for large-scale deployment[cite: 46].</li>
+                            <li>Optimized face recognition models for real-world conditions (poses, lighting, motion blur).</li>
+                            <li>Integrated tracking and identity consistency for live CCTV video streams.</li>
                         </ul>
                     </div>
                 </div>
@@ -231,36 +238,37 @@
                 <div id="education" class="tab-content">
                     <div class="card">
                         <div class="header-flex">
-                            <span class="title-main">Dev Bhoomi Group of Institutions [cite: 68]</span>
-                            <span style="color: var(--text-secondary); font-family: monospace;">2020 - 2024 [cite: 69]</span>
+                            <span class="title-main">Dev Bhoomi Group of Institutions</span>
+                            <span style="color: var(--text-secondary); font-family: monospace;">2020 - 2024</span>
                         </div>
-                        <span class="subtitle">B.Tech in Computer Science [cite: 69]</span>
+                        <span class="subtitle">Bachelor of Technology (B.Tech) - Computer Science</span>
                         <ul>
-                            <li>Member of Computer Society of India[cite: 64, 66].</li>
-                            <li>Specialized focus on software systems and engineering principles[cite: 69].</li>
+                            <li>Member of Computer Society of India (2019 - 2021).</li>
+                            <li>Microsoft Technology Associate (MTA): Web Development Fundamentals.</li>
+                            <li>Certified in C# Console and Windows Form Development w/ Entity Framework.</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <h2 class="section-title">Professional Skillset [cite: 8]</h2>
+            <h2 class="section-title">Professional Skillset</h2>
             <div class="skill-grid">
-                <div class="skill-item">C# & .NET Core [cite: 12]</div>
-                <div class="skill-item">RESTful Routing [cite: 10]</div>
-                <div class="skill-item">Entity Framework [cite: 12]</div>
-                <div class="skill-item">ASP.NET Debugging [cite: 10]</div>
-                <div class="skill-item">WinForms Development [cite: 12]</div>
-                <div class="skill-item">Windows Ecosystem [cite: 37]</div>
+                <div class="skill-item">C# Programming & OOP</div>
+                <div class="skill-item">Windows Form Architecture</div>
+                <div class="skill-item">Entity Framework & ADO.NET</div>
+                <div class="skill-item">RESTful Routing & Web APIs</div>
+                <div class="skill-item">CRUD Operations & SQL Server</div>
+                <div class="skill-item">Debugging & Troubleshooting</div>
             </div>
 
-            <h2 class="section-title">Tools I Use</h2>
+            <h2 class="section-title">Tools & Architecture</h2>
             <div class="skill-grid">
-                <div class="skill-item">Visual Studio IDE [cite: 9]</div>
-                <div class="skill-item">BizTalk Server [cite: 52]</div>
-                <div class="skill-item">SNMP Profiling [cite: 41]</div>
-                <div class="skill-item">WebSocket / TCP [cite: 43]</div>
-                <div class="skill-item">FTPS (TLS Secured) [cite: 44]</div>
-                <div class="skill-item">Parallel IP Scanners [cite: 42]</div>
+                <div class="skill-item">Visual Studio IDE</div>
+                <div class="skill-item">BizTalk Server</div>
+                <div class="skill-item">WebSocket & TCP Networking</div>
+                <div class="skill-item">SNMP & mDNS Profiling</div>
+                <div class="skill-item">FTPS (TLS Secured)</div>
+                <div class="skill-item">Parallel IP Discovery</div>
             </div>
         </section>
     </main>
@@ -288,12 +296,12 @@
         function animate() {
             ctx.clearRect(0,0,canvas.width,canvas.height);
             ctx.fillStyle = '#38bdf8';
-            for(let i=0; i<50; i++) {
+            for(let i=0; i<40; i++) {
                 ctx.beginPath();
-                ctx.arc(Math.random()*canvas.width, Math.random()*canvas.height, 1, 0, Math.PI*2);
+                ctx.arc(Math.random()*canvas.width, Math.random()*canvas.height, 0.8, 0, Math.PI*2);
                 ctx.fill();
             }
-            setTimeout(() => requestAnimationFrame(animate), 100);
+            setTimeout(() => requestAnimationFrame(animate), 150);
         }
         animate();
     </script>

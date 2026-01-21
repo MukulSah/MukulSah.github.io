@@ -133,9 +133,24 @@
         .job-header { display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 10px; }
         .company { color: var(--accent); font-weight: bold; font-size: 1.2rem; }
         .date { font-family: monospace; color: var(--text-secondary); }
-        .job-details ul { list-style-type: none; margin-top: 15px; }
+        
+        .project-block {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            border-left: 2px solid var(--accent);
+        }
+        .project-title {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        .job-details ul { list-style-type: none; margin-top: 10px; }
         .job-details li {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             padding-left: 20px;
             position: relative;
             color: var(--text-secondary);
@@ -152,19 +167,20 @@
         .skills-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 12px;
             margin-bottom: 100px;
         }
         .skill-tag {
             background: var(--card-bg);
-            padding: 10px 20px;
-            border-radius: 50px;
+            padding: 8px 16px;
+            border-radius: 4px;
             font-family: monospace;
-            color: var(--accent);
-            border: 1px solid transparent;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            border: 1px solid rgba(255,255,255,0.05);
             transition: 0.3s;
         }
-        .skill-tag:hover { border-color: var(--accent); color: #fff; }
+        .skill-tag:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
         /* Footer */
         footer {
@@ -202,6 +218,7 @@
             <a href="#about">About</a>
             <a href="#philosophy">Philosophy</a>
             <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
@@ -212,8 +229,8 @@
             <h1>Mukul Sah.</h1>
             <h2>I build reliable, scalable systems.</h2>
             <p>
-                Software Engineer and Maverick based in New Delhi. I specialize in architecting IT Asset Management platforms, 
-                Windows Ecosystems, and complex .NET integrations.
+                Software Engineer and Maverick based in New Delhi. I specialize in Windows Internals, 
+                Desktop Application Development, and production-grade AI integration.
             </p>
             <div>
                 <a href="mailto:mukulofficialstu@gmail.com" class="btn">Get In Touch</a>
@@ -260,14 +277,25 @@
                         <span class="company">Maco Infotech Ltd.</span>
                         <span class="date">May 2024 - Present</span>
                     </div>
-                    <div style="margin-bottom: 10px; font-style: italic;">Software Engineer (Windows Ecosystem)</div>
+                    <div style="margin-bottom: 10px; font-style: italic;">Desktop Application Developer</div>
+                    
                     <div class="job-details">
-                        <ul>
-                            [cite_start]<li>Architecting a scalable IT Asset Management platform for enterprise Windows environments[cite: 37, 38].</li>
-                            [cite_start]<li>Engineered hybrid discovery techniques using SNMP, mDNS, SSDP, and parallel IP range scanning for real-time network topology[cite: 41, 42].</li>
-                            [cite_start]<li>Implemented secure remote desktop access via WebSocket streaming and FTPS for encrypted log transfers[cite: 43, 44].</li>
-                            [cite_start]<li>Designed anomaly detection systems for "zombie" devices and real-time performance telemetry[cite: 45].</li>
-                        </ul>
+                        <div class="project-block">
+                            <span class="project-title">Project: Endpoint Agent System</span>
+                            <ul>
+                                <li>Engineered a comprehensive <strong>Asset Management System</strong> to streamline company operations.</li>
+                                <li>Built features for <strong>Hardware Surveillance</strong> and <strong>Theft Detection</strong>, allowing full control of office computers even outside the network.</li>
+                                <li>Implemented <strong>Remote Desktop Control</strong>, automated app inventory, silent software installation, and advanced system scanning.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-block">
+                            <span class="project-title">Project: CCTV Face Recognition System</span>
+                            <ul>
+                                <li>Developed a production-level AI surveillance system for employee registration and identification.</li>
+                                <li>Trained models to achieve high recognition accuracy, handling <strong>random postures, variable lighting, head movement, and motion speed</strong>.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
@@ -276,11 +304,12 @@
                         <span class="company">Omnie Solutions (1) Pvt Ltd</span>
                         <span class="date">July 2023 - May 2024</span>
                     </div>
-                    <div style="margin-bottom: 10px; font-style: italic;">Software Engineer</div>
+                    <div style="margin-bottom: 10px; font-style: italic;">Software Engineer (IT Integration & .NET)</div>
                     <div class="job-details">
                         <ul>
-                            [cite_start]<li>Contributed to IT Integration for Tronox Inc. and .NET development for Trinity Healthcare[cite: 52].</li>
-                            [cite_start]<li>Adapted to diverse technical environments and took ownership of key tasks[cite: 53].</li>
+                            <li><strong>Tronox Inc:</strong> Served as an IT Integration Developer, bridging complex systems.</li>
+                            <li><strong>Trinity Healthcare Solution:</strong> Delivered core .NET Development solutions.</li>
+                            <li>Adapted to diverse technical environments and took ownership of key tasks, consistently delivering results through extra commitment to excellence.</li>
                         </ul>
                     </div>
                 </div>
@@ -290,10 +319,10 @@
                         <span class="company">Binmile</span>
                         <span class="date">May 2023 - July 2023</span>
                     </div>
-                    <div style="margin-bottom: 10px; font-style: italic;">Software Engineer Trainee</div>
+                    <div style="margin-bottom: 10px; font-style: italic;">.NET Developer</div>
                     <div class="job-details">
                         <ul>
-                            [cite_start]<li>Campus placement role focused on initial software engineering training[cite: 54, 58].</li>
+                            <li>Focused on foundational .NET Framework development and software engineering best practices.</li>
                         </ul>
                     </div>
                 </div>
@@ -304,14 +333,20 @@
         <section id="skills" class="fade-in-section">
             <h2 class="section-title">Technical Arsenal</h2>
             <div class="skills-container">
-                <span class="skill-tag">C# / .NET Core</span>
-                <span class="skill-tag">ASP.NET Web API</span>
-                <span class="skill-tag">Windows Internals</span>
+                <span class="skill-tag">Windows Forms (WinForms)</span>
+                <span class="skill-tag">C# Programming</span>
+                <span class="skill-tag">.NET Framework</span>
                 <span class="skill-tag">Entity Framework</span>
-                <span class="skill-tag">Socket Programming (TCP/WebSocket)</span>
-                <span class="skill-tag">Network Discovery (SNMP/mDNS)</span>
-                <span class="skill-tag">System Architecture</span>
-                <span class="skill-tag">Visual Studio IDE</span>
+                <span class="skill-tag">ADO.NET</span>
+                <span class="skill-tag">LINQ</span>
+                <span class="skill-tag">Microsoft SQL Server</span>
+                <span class="skill-tag">Console Applications</span>
+                <span class="skill-tag">OOP & Design Patterns</span>
+                <span class="skill-tag">Event-Driven UI Programming</span>
+                <span class="skill-tag">Data Binding</span>
+                <span class="skill-tag">Debugging & Troubleshooting</span>
+                <span class="skill-tag">CRUD Operations</span>
+                <span class="skill-tag">Software Application Design</span>
             </div>
         </section>
 

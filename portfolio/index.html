@@ -3,16 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Mukul's Portfolio</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script src="../assets/js/main.js" defer></script>
 </head>
-<body>
-    <h1>Welcome to My Portfolio</h1>
-    <nav>
+<body class="dark-mode">
+    <section class="hero">
+        <h1>Mukul</h1>
+        <h2>Software Engineer</h2>
+        <p>Welcome to my portfolio website!</p>
+        <button onclick="viewProjects()">View Projects</button>
+        <button onclick="contactMe()">Contact Me</button>
+    </section>
+    <section class="about-me">
+        <h2>About Me</h2>
+        <p>Brief introduction about yourself.</p>
+    </section>
+    <section class="skills">
+        <h2>Skills</h2>
+        <div class="skill-group">
+            <h3>Backend</h3>
+            <p>List of backend skills.</p>
+        </div>
+        <div class="skill-group">
+            <h3>Frontend</h3>
+            <p>List of frontend skills.</p>
+        </div>
+        <div class="skill-group">
+            <h3>Systems & Infrastructure</h3>
+            <p>List of systems & infrastructure skills.</p>
+        </div>
+        <div class="skill-group">
+            <h3>AI/Computer Vision</h3>
+            <p>List of AI/Computer Vision skills.</p>
+        </div>
+    </section>
+    <section class="experience">
+        <h2>Experience</h2>
         <ul>
-            <li><a href="/portfolio/projects/facenova.html">Facenova Project</a></li>
-            <li><a href="/portfolio/projects/sentra.html">Sentra Project</a></li>
-            <li><a href="/portfolio/research/amity.html">Amity Research</a></li>
+            <li>
+                <strong>MACO INFOTECH LTD</strong> <em>May 2024-Present</em> <br>
+                Software Engineer with:<br>
+                <ul>
+                    <li>Responsibility 1</li>
+                    <li>Responsibility 2</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Omnie Solutions (1) Pvt Ltd</strong> <em>July 2023-May 2024</em> <br>
+                Software Engineer (.NET & BizTalk Integration) with:<br>
+                <ul>
+                    <li>Responsibility 1</li>
+                    <li>Responsibility 2</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Binmile</strong> <em>May 2023-July 2023</em><br>
+                Software Engineer with:<br>
+                <ul>
+                    <li>Responsibility 1</li>
+                </ul>
+            </li>
         </ul>
-    </nav>
+    </section>
+    <section class="education">
+        <h2>Education</h2>
+        <p><strong>Dev Bhoomi Group of Institutions</strong> <em>2020-2024</em> <br>
+        B.Tech CSE with:<br>
+        <ul>
+            <li>Notable Course 1</li>
+            <li>Notable Course 2</li>
+        </ul>
+        </p>
+    </section>
+    <section class="certifications">
+        <h2>Certifications</h2>
+        <ul>
+            <li>Udemy: C# Console and Windows Form Development w/ Entity Framework</li>
+            <li>Udemy: ASP.NET MVC 5 Course</li>
+        </ul>
+    </section>
+    <section class="projects">
+        <h2>Projects</h2>
+        <div class="card">
+            <h3>FaceNova</h3>
+            <p>Short description of FaceNova project.</p>
+        </div>
+        <div class="card">
+            <h3>Sentra</h3>
+            <p>Short description of Sentra project.</p>
+        </div>
+    </section>
+    <section class="research">
+        <h2>Research</h2>
+        <p>Details about research conducted at Amity.</p>
+    </section>
+    <section class="social-contact">
+        <h2>Social Links</h2>
+        <a href="https://github.com/MukulSah">GitHub</a> | 
+        <a href="https://www.linkedin.com/in/placeholder">LinkedIn</a> | 
+        <a href="mailto:mukulofficialstu@gmail.com">Email</a>
+    </section>
+    <form class="feedback-form">
+        <h2>Feedback</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        <label for="message">Message:</label>
+        <textarea id="message" required></textarea>
+        <button type="submit">Send Feedback</button>
+    </form>
+    <script>
+        // Store feedback in localStorage
+        document.querySelector('.feedback-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+            const feedback = { name, message };
+            localStorage.setItem('feedback', JSON.stringify(feedback));
+            alert('Feedback submitted!');
+        });
+    </script>
 </body>
 </html>

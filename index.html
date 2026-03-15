@@ -1,324 +1,165 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mukul Sah | Software Engineer</title>
-    <style>
-        :root {
-            --bg-color: #020617;
-            --card-bg: #0f172a;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent: #38bdf8;
-            --accent-glow: rgba(56, 189, 248, 0.3);
-            --maverick-gold: #fbbf24;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; }
-        
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+<title>Mukul | Software Engineer</title>
 
-        #bg-canvas {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1; opacity: 0.2;
-        }
-
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
-
-        nav {
-            padding: 25px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            background: rgba(2, 6, 23, 0.9);
-            backdrop-filter: blur(12px);
-            z-index: 100;
-        }
-
-        .logo { font-size: 1.4rem; font-weight: 800; color: var(--accent); letter-spacing: -1px; }
-
-        /* Hero */
-        .hero {
-            padding: 100px 0 60px;
-            display: flex;
-            flex-direction: column;
-        }
-        .hero h1 { font-size: clamp(3rem, 8vw, 5rem); line-height: 1.1; margin: 10px 0; font-weight: 800; }
-        .hero p { max-width: 700px; color: var(--text-secondary); font-size: 1.1rem; margin-top: 15px; }
-        
-        /* Tab System */
-        .tabs-container { margin-top: 50px; }
-        .tab-buttons {
-            display: flex;
-            gap: 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 40px;
-            overflow-x: auto;
-            white-space: nowrap;
-        }
-        .tab-btn {
-            background: none;
-            border: none;
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            font-weight: 600;
-            padding: 10px 20px;
-            cursor: pointer;
-            transition: 0.3s;
-            position: relative;
-        }
-        .tab-btn.active { color: var(--accent); }
-        .tab-btn.active::after {
-            content: "";
-            position: absolute;
-            bottom: -1px; left: 0; width: 100%; height: 2px;
-            background: var(--accent);
-        }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; animation: fadeIn 0.5s ease; }
-
-        /* Cards */
-        .card {
-            background: var(--card-bg);
-            border: 1px solid rgba(255,255,255,0.05);
-            padding: 30px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-        }
-        .header-flex { display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 15px; }
-        .title-main { color: var(--accent); font-size: 1.4rem; font-weight: 700; }
-        .subtitle { color: var(--maverick-gold); font-weight: 600; margin-bottom: 15px; display: block; }
-        
-        ul { list-style: none; }
-        li { position: relative; padding-left: 25px; margin-bottom: 10px; color: var(--text-secondary); }
-        li::before { content: "▹"; position: absolute; left: 0; color: var(--accent); }
-
-        /* Skillsets & Tools */
-        .section-title { font-size: 1.8rem; margin: 60px 0 30px; display: flex; align-items: center; gap: 15px; }
-        .section-title::after { content: ""; height: 1px; background: rgba(255,255,255,0.1); flex-grow: 1; }
-        
-        .skill-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 15px;
-        }
-        .skill-item {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.05);
-            padding: 15px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            text-align: center;
-            transition: 0.3s;
-        }
-        .skill-item:hover { border-color: var(--accent); color: var(--accent); transform: scale(1.02); }
-
-        /* Floating Actions */
-        .resume-float {
-            position: fixed;
-            bottom: 30px; right: 30px;
-            display: flex; flex-direction: column; gap: 10px;
-            z-index: 1000;
-        }
-        .btn {
-            padding: 12px 24px;
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 4px;
-            background: var(--bg-color);
-            text-align: center;
-            transition: 0.3s;
-        }
-        .btn-fill { background: var(--accent); color: var(--bg-color); }
-        .btn:hover { box-shadow: 0 0 15px var(--accent-glow); transform: translateY(-2px); }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        @media (max-width: 768px) {
-            .resume-float { position: static; margin-top: 40px; padding: 0 25px; margin-bottom: 40px; }
-            .hero { padding-top: 60px; }
-        }
-    </style>
+<link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-    <canvas id="bg-canvas"></canvas>
-
+<header>
     <nav class="container">
-        <div class="logo">MUKUL.SAH</div>
-        <div class="nav-links">
-            <a href="mailto:mukulofficialstu@gmail.com" class="btn" style="font-size: 0.8rem; padding: 8px 16px;">Contact</a>
-        </div>
+        <h1>Mukul</h1>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
+</header>
 
-    <main class="container">
-        <section class="hero">
-            <h2 style="color: var(--accent); font-family: monospace;">// Software Engineer | Maverick</h2>
-            <h1>Mukul Sah.</h1>
-            <p>Focused on building reliable, scalable, and impactful systems. Over the years, I've grown through real-world challenges—handling critical responsibilities and aligning technology with business goals.</p>
 
-            <div class="tabs-container">
-                <div class="tab-buttons">
-                    <button class="tab-btn active" onclick="openTab(event, 'experience')">Where I've Worked</button>
-                    <button class="tab-btn" onclick="openTab(event, 'projects')">Project Details</button>
-                    <button class="tab-btn" onclick="openTab(event, 'education')">Education</button>
-                    <button class="tab-btn" onclick="openTab(event, 'certification')">Certification</button>
-                </div>
+<section class="hero">
+<div class="container">
 
-                <div id="experience" class="tab-content active">
-                    <div class="card">
-                        <div class="header-flex">
-                            <span class="title-main">MACO INFOTECH LTD.</span>
-                            <span style="color: var(--text-secondary); font-family: monospace;">May 2024 - Present</span>
-                        </div>
-                        <span class="subtitle">Software Engineer</span>
-                        <ul>
-                            <li>Architecting and leading the development of a scalable IT Asset Management platform for enterprise Windows environments.</li>
-                            <li>Engineered hybrid discovery techniques using SNMP, mDNS, and SSDP for comprehensive network visibility.</li>
-                            <li>Implemented secure remote desktop access via WebSocket-based streaming.</li>
-                            <li>Designed telemetry pipelines for real-time performance metrics and anomaly detection for "zombie" devices.</li>
-                        </ul>
-                    </div>
+<h2>Software Engineer</h2>
 
-                    <div class="card">
-                        <div class="header-flex">
-                            <span class="title-main">Omnie Solutions (1) Pvt Ltd</span>
-                            <span style="color: var(--text-secondary); font-family: monospace;">July 2023 - May 2024</span>
-                        </div>
-                        <span class="subtitle">Software Engineer (.NET & BizTalk Integration)</span>
-                        <ul>
-                            <li>Contributed to IT Integration for Tronox Inc. as an Integration Developer.</li>
-                            <li>Developed core .NET features for Trinity Healthcare Solution.</li>
-                            <li>Took ownership of key tasks in diverse technical environments, consistently delivering results with passion.</li>
-                        </ul>
-                    </div>
+<p>
+I build distributed systems, AI-powered platforms and enterprise monitoring software.
+My focus is real-time systems, observability platforms, and computer vision applications.
+</p>
 
-                    <div class="card">
-                        <div class="header-flex">
-                            <span class="title-main">Binmile</span>
-                            <span style="color: var(--text-secondary); font-family: monospace;">May 2023 - July 2023</span>
-                        </div>
-                        <span class="subtitle">Software Engineer</span>
-                        <ul>
-                            <li>Campus Placement role focused on learning and building foundational software engineering best practices.</li>
-                        </ul>
-                    </div>
-                </div>
+<a href="#projects" class="btn">View My Work</a>
 
-                <div id="projects" class="tab-content">
-                    <div class="card">
-                        <span class="title-main">Enterprise Endpoint System</span>
-                        <span class="subtitle">IT Asset Lifecycle & Network Discovery</span>
-                        <ul>
-                            <li>Built high-performance parallel IP range scanning with dynamic network topology mapping.</li>
-                            <li>Implemented FTPS (TLS-secured) channels for encrypted log transfer and configuration synchronization.</li>
-                            <li>Utilized active and passive discovery including MAC address vendor analysis and Wi-Fi profiling.</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <span class="title-main">AI Surveillance Pipeline</span>
-                        <span class="subtitle">Production-Ready Recognition</span>
-                        <ul>
-                            <li>Optimized face recognition models for real-world conditions (poses, lighting, motion blur).</li>
-                            <li>Integrated tracking and identity consistency for live CCTV video streams.</li>
-                        </ul>
-                    </div>
-                </div>
+</div>
+</section>
 
-                <div id="education" class="tab-content">
-                    <div class="card">
-                        <div class="header-flex">
-                            <span class="title-main">Dev Bhoomi Group of Institutions</span>
-                            <span style="color: var(--text-secondary); font-family: monospace;">2020 - 2024</span>
-                        </div>
-                        <span class="subtitle">Bachelor of Technology (B.Tech) - Computer Science</span>
-                        <ul>
-                            <li>Member of Computer Society of India (2019 - 2021).</li>
-                            <li>Microsoft Technology Associate (MTA): Web Development Fundamentals.</li>
-                        </ul>
-                    </div>
-                </div>
 
-                <div id="certification" class="tab-content">
-                    <div class="card">
-                        <div class="header-flex">
-                            <span class="title-main">C# Console and Windows Form Development w/ Entity Framework</span>
-                        </div>
-                        <span class="subtitle">Udemy</span>
-                        
-                        <div class="header-flex">
-                            <span class="title-main">ASP.NET MVC 5 Course/span>
-                        </div>
-                        <span class="subtitle">Udemy</span>
-                       
-                    </div>
-                </div>
-            </div>
+<section id="about" class="section">
+<div class="container">
 
-            <h2 class="section-title">Professional Skillset</h2>
-            <div class="skill-grid">
-                <div class="skill-item">C# Programming & OOP</div>
-                <div class="skill-item">Windows Form Architecture</div>
-                <div class="skill-item">Entity Framework & ADO.NET</div>
-                <div class="skill-item">RESTful Routing & Web APIs</div>
-                <div class="skill-item">CRUD Operations & SQL Server</div>
-                <div class="skill-item">Debugging & Troubleshooting</div>
-            </div>
+<h2>About Me</h2>
 
-            <h2 class="section-title">Tools & Architecture</h2>
-            <div class="skill-grid">
-                <div class="skill-item">Visual Studio IDE</div>
-                <div class="skill-item">BizTalk Server</div>
-                <div class="skill-item">WebSocket & TCP Networking</div>
-                <div class="skill-item">SNMP & mDNS Profiling</div>
-                <div class="skill-item">FTPS (TLS Secured)</div>
-                <div class="skill-item">Parallel IP Discovery</div>
-            </div>
-        </section>
-    </main>
+<p>
+I am a software engineer focused on building scalable systems, real-time platforms and intelligent software.
+My work spans enterprise monitoring systems, computer vision pipelines, and distributed architecture.
+</p>
 
-    <div class="resume-float">
-        <a href="Profile.pdf" target="_blank" class="btn">View Resume PDF</a>
-        <a href="Profile.pdf" download="Mukul_Sah_Resume.pdf" class="btn btn-fill">Download Resume</a>
-    </div>
+</div>
+</section>
 
-    <script>
-        function openTab(evt, tabName) {
-            var i, tabContent, tabBtn;
-            tabContent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabContent.length; i++) tabContent[i].style.display = "none";
-            tabBtn = document.getElementsByClassName("tab-btn");
-            for (i = 0; i < tabBtn.length; i++) tabBtn[i].className = tabBtn[i].className.replace(" active", "");
-            document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += " active";
-        }
 
-        const canvas = document.getElementById('bg-canvas');
-        const ctx = canvas.getContext('2d');
-        function init() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-        window.addEventListener('resize', init); init();
-        function animate() {
-            ctx.clearRect(0,0,canvas.width,canvas.height);
-            ctx.fillStyle = '#38bdf8';
-            for(let i=0; i<40; i++) {
-                ctx.beginPath();
-                ctx.arc(Math.random()*canvas.width, Math.random()*canvas.height, 0.8, 0, Math.PI*2);
-                ctx.fill();
-            }
-            setTimeout(() => requestAnimationFrame(animate), 150);
-        }
-        animate();
-    </script>
+<section id="skills" class="section">
+<div class="container">
+
+<h2>Skills</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Backend</h3>
+<p>.NET</p>
+<p>ASP.NET Core</p>
+<p>Microservices</p>
+<p>PostgreSQL</p>
+<p>Redis</p>
+<p>RabbitMQ</p>
+</div>
+
+<div class="card">
+<h3>Frontend</h3>
+<p>Blazor</p>
+<p>HTML</p>
+<p>CSS</p>
+<p>JavaScript</p>
+</div>
+
+<div class="card">
+<h3>AI / Vision</h3>
+<p>YOLO</p>
+<p>ArcFace</p>
+<p>OpenCV</p>
+<p>RTSP Video Processing</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<section id="projects" class="section">
+<div class="container">
+
+<h2>Projects</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>FaceNova</h3>
+<p>Real-time face attendance system with liveness detection and RTSP streaming.</p>
+<a href="facenova.html">View Project</a>
+</div>
+
+<div class="card">
+<h3>Sentra</h3>
+<p>Enterprise endpoint monitoring platform with distributed agents.</p>
+<a href="sentra.html">View Project</a>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<section id="research" class="section">
+<div class="container">
+
+<h2>Research</h2>
+
+<div class="card">
+
+<h3>Amity</h3>
+
+<p>
+Research focused on designing applications with intelligent UI systems capable of delivering seamless experience across web, desktop and mobile platforms.
+</p>
+
+</div>
+
+</div>
+</section>
+
+
+<section id="contact" class="section">
+<div class="container">
+
+<h2>Connect</h2>
+
+<p>Email: your@email.com</p>
+<p>Github: github.com/yourprofile</p>
+<p>LinkedIn: linkedin.com/in/yourprofile</p>
+
+</div>
+</section>
+
+
+<footer>
+
+<p>© 2026 Mukul — Software Engineer</p>
+
+</footer>
+
+
+<script src="js/script.js"></script>
+
 </body>
 </html>

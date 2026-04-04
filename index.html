@@ -1,20 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Mukul | Software Engineer</title>
-
-<link rel="stylesheet" href="css/style.css">
+<title>Mukul | Software Engineer Portfolio</title>
+<meta
+    name="description"
+    content="Professional software engineer portfolio showcasing distributed systems, observability platforms, and AI-powered products."
+>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
+<header class="site-header">
     <nav class="container">
-        <h1>Mukul</h1>
+        <a href="#top" class="brand">Mukul</a>
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
@@ -25,141 +25,222 @@
     </nav>
 </header>
 
+<main id="top">
+    <section class="hero">
+        <div class="container hero-layout">
+            <div>
+                <p class="eyebrow">Software Engineer</p>
+                <h1>Building modern platforms for real-time, cloud, and AI-driven products.</h1>
+                <p class="hero-copy">
+                    I design professional software experiences that combine strong backend architecture,
+                    responsive interfaces, and production-ready intelligence for enterprise teams.
+                </p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Let's Connect</a>
+                </div>
+            </div>
 
-<section class="hero">
-<div class="container">
+            <div class="hero-card">
+                <p class="hero-card-label">Core Focus</p>
+                <ul class="hero-points">
+                    <li>Distributed systems & observability</li>
+                    <li>Full-stack web engineering</li>
+                    <li>Computer vision & real-time processing</li>
+                    <li>Scalable product architecture</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-<h2>Software Engineer</h2>
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-heading">
+                <p class="eyebrow">About</p>
+                <h2>Professional software engineer focused on impact.</h2>
+            </div>
+            <div class="about-grid">
+                <div class="card">
+                    <p>
+                        I build reliable digital products with a strong emphasis on system design,
+                        maintainability, and user-centered experiences. My work spans enterprise
+                        monitoring platforms, intelligent automation, and high-performance applications.
+                    </p>
+                </div>
+                <div class="card">
+                    <p>
+                        I enjoy solving complex engineering problems across backend services, web
+                        frontends, and applied AI systems—translating ideas into polished, production-ready solutions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<p>
-I build distributed systems, AI-powered platforms and enterprise monitoring software.
-My focus is real-time systems, observability platforms, and computer vision applications.
-</p>
+    <section id="skills" class="section section-alt">
+        <div class="container">
+            <div class="section-heading">
+                <p class="eyebrow">Skills</p>
+                <h2>Technology stack aligned to modern product development.</h2>
+            </div>
 
-<a href="#projects" class="btn">View My Work</a>
+            <div class="grid">
+                <article class="card">
+                    <h3>Backend Engineering</h3>
+                    <ul class="list">
+                        <li>.NET & ASP.NET Core</li>
+                        <li>Microservices & distributed systems</li>
+                        <li>PostgreSQL, Redis, RabbitMQ</li>
+                        <li>API design & real-time messaging</li>
+                    </ul>
+                </article>
 
-</div>
-</section>
+                <article class="card">
+                    <h3>Frontend Development</h3>
+                    <ul class="list">
+                        <li>Blazor, HTML, CSS, JavaScript</li>
+                        <li>Responsive UI architecture</li>
+                        <li>Professional dashboard design</li>
+                        <li>Accessible, modern interfaces</li>
+                    </ul>
+                </article>
 
+                <article class="card">
+                    <h3>AI & Computer Vision</h3>
+                    <ul class="list">
+                        <li>YOLO, ArcFace, OpenCV</li>
+                        <li>RTSP video stream processing</li>
+                        <li>Liveness detection workflows</li>
+                        <li>Intelligent automation systems</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
 
-<section id="about" class="section">
-<div class="container">
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="section-heading">
+                <p class="eyebrow">Projects</p>
+                <h2>Selected work that blends engineering quality with product thinking.</h2>
+            </div>
 
-<h2>About Me</h2>
+            <div class="project-list">
+                <article class="card project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3>Sentra Monitoring Platform</h3>
+                            <p class="project-tag">Enterprise Monitoring Platform</p>
+                        </div>
+                        <span class="badge">Full Stack</span>
+                    </div>
+                    <p>
+                        Sentra is a distributed endpoint monitoring and management platform built to give
+                        organizations centralized visibility and control over their devices.
+                    </p>
+                    <div class="project-columns">
+                        <div>
+                            <h4>Capabilities</h4>
+                            <ul class="list">
+                                <li>Agent-based monitoring</li>
+                                <li>Hardware inventory collection</li>
+                                <li>Remote command execution</li>
+                                <li>Firewall management</li>
+                                <li>Remote desktop capability</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Technology</h4>
+                            <ul class="list">
+                                <li>.NET</li>
+                                <li>Blazor</li>
+                                <li>PostgreSQL</li>
+                                <li>Redis</li>
+                                <li>RabbitMQ & SignalR</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
 
-<p>
-I am a software engineer focused on building scalable systems, real-time platforms and intelligent software.
-My work spans enterprise monitoring systems, computer vision pipelines, and distributed architecture.
-</p>
+                <article class="card project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3>FaceNova</h3>
+                            <p class="project-tag">Computer Vision Attendance System</p>
+                        </div>
+                        <span class="badge">AI / Vision</span>
+                    </div>
+                    <p>
+                        FaceNova is a real-time attendance platform designed for live camera and RTSP CCTV
+                        streams, ensuring attendance is recorded only when a real human presence is verified.
+                    </p>
+                    <div class="project-columns">
+                        <div>
+                            <h4>Key Features</h4>
+                            <ul class="list">
+                                <li>Liveness detection</li>
+                                <li>Blink verification</li>
+                                <li>Head motion detection</li>
+                                <li>RTSP CCTV support</li>
+                                <li>Temporal trust window</li>
+                                <li>Dual attendance logging</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Technology</h4>
+                            <ul class="list">
+                                <li>Python</li>
+                                <li>OpenCV</li>
+                                <li>Face recognition models</li>
+                                <li>RTSP streaming pipelines</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
 
-</div>
-</section>
+    <section id="research" class="section section-alt">
+        <div class="container">
+            <div class="section-heading">
+                <p class="eyebrow">Research</p>
+                <h2>Exploring intelligent user experiences.</h2>
+            </div>
+            <article class="card">
+                <h3>Amity</h3>
+                <p>
+                    Research focused on building intelligent UI systems that create seamless experiences
+                    across web, desktop, and mobile platforms through adaptive design and product-led thinking.
+                </p>
+            </article>
+        </div>
+    </section>
 
-
-<section id="skills" class="section">
-<div class="container">
-
-<h2>Skills</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Backend</h3>
-<p>.NET</p>
-<p>ASP.NET Core</p>
-<p>Microservices</p>
-<p>PostgreSQL</p>
-<p>Redis</p>
-<p>RabbitMQ</p>
-</div>
-
-<div class="card">
-<h3>Frontend</h3>
-<p>Blazor</p>
-<p>HTML</p>
-<p>CSS</p>
-<p>JavaScript</p>
-</div>
-
-<div class="card">
-<h3>AI / Vision</h3>
-<p>YOLO</p>
-<p>ArcFace</p>
-<p>OpenCV</p>
-<p>RTSP Video Processing</p>
-</div>
-
-</div>
-
-</div>
-</section>
-
-
-<section id="projects" class="section">
-<div class="container">
-
-<h2>Projects</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>FaceNova</h3>
-<p>Real-time face attendance system with liveness detection and RTSP streaming.</p>
-<a href="facenova.html">View Project</a>
-</div>
-
-<div class="card">
-<h3>Sentra</h3>
-<p>Enterprise endpoint monitoring platform with distributed agents.</p>
-<a href="sentra.html">View Project</a>
-</div>
-
-</div>
-
-</div>
-</section>
-
-
-<section id="research" class="section">
-<div class="container">
-
-<h2>Research</h2>
-
-<div class="card">
-
-<h3>Amity</h3>
-
-<p>
-Research focused on designing applications with intelligent UI systems capable of delivering seamless experience across web, desktop and mobile platforms.
-</p>
-
-</div>
-
-</div>
-</section>
-
-
-<section id="contact" class="section">
-<div class="container">
-
-<h2>Connect</h2>
-
-<p>Email: your@email.com</p>
-<p>Github: github.com/yourprofile</p>
-<p>LinkedIn: linkedin.com/in/yourprofile</p>
-
-</div>
-</section>
-
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="contact-card">
+                <div>
+                    <p class="eyebrow">Contact</p>
+                    <h2>Let's build something meaningful.</h2>
+                    <p>
+                        If you're looking for a software engineer to help design scalable systems or modern
+                        product experiences, let's connect.
+                    </p>
+                </div>
+                <div class="contact-links">
+                    <span>Email available on request</span>
+                    <a href="https://github.com/MukulSah">github.com/MukulSah</a>
+                    <span>Open to software engineering opportunities</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 
 <footer>
-
-<p>© 2026 Mukul — Software Engineer</p>
-
+    <p>© 2026 Mukul — Software Engineer Portfolio</p>
 </footer>
-
-
-<script src="js/script.js"></script>
 
 </body>
 </html>
